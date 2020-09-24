@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:tombala/ui/screen/homescreen/components/about_page.dart';
 
 import '../../../blocs/generator_bloc/generator_bloc.dart';
@@ -57,7 +58,7 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
-  AnimationController _ctrl;
+  AnimationController _counterAniContrl;
   GeneratorBloc _generatorBloc;
   ScrollController _scrollCtrl;
 
@@ -67,7 +68,7 @@ class _HeaderState extends State<Header> {
     _scrollCtrl = ScrollController();
     _generatorBloc = BlocProvider.of<GeneratorBloc>(context);
     _generatorBloc.listen((state) {
-      _ctrl?.animateTo(state.value.toDouble());
+      _counterAniContrl?.animateTo(state.value.toDouble());
       _scrollCtrl?.animateTo(
         (70 + _scrollCtrl.position.maxScrollExtent).toDouble(),
         duration: Duration(milliseconds: 1000),
@@ -77,9 +78,11 @@ class _HeaderState extends State<Header> {
   }
 
   @override
-  void didChangeDependencies() {
+  void dispose() {
+    _counterAniContrl.dispose();
+    _generatorBloc.close();
     _scrollCtrl.dispose();
-    super.didChangeDependencies();
+    super.dispose();
   }
 
   @override
@@ -91,10 +94,10 @@ class _HeaderState extends State<Header> {
         children: [
           Text(
             'Tombola',
-            style: Theme.of(context)
-                .primaryTextTheme
-                .headline2
-                .copyWith(color: Colors.black),
+            style: GoogleFonts.gochiHand().copyWith(
+              fontSize: 80,
+              color: Colors.black54,
+            ),
           ),
           Container(
             decoration: BoxDecoration(
@@ -107,7 +110,7 @@ class _HeaderState extends State<Header> {
             ),
             padding: const EdgeInsets.all(10),
             child: AnimatedCounterWidget(
-              init: (c) => _ctrl = c,
+              init: (c) => _counterAniContrl = c,
             ),
           ),
           Row(
@@ -196,7 +199,8 @@ class TableTile extends StatelessWidget {
   }) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 1000),
       decoration: BoxDecoration(
         color:
             isSelected ? Colors.purple[50] : Colors.purple[50].withOpacity(0.3),
