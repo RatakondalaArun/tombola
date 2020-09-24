@@ -66,12 +66,19 @@ class AboutPage extends StatelessWidget {
                 context: context,
                 applicationName: 'Tombola',
                 applicationVersion: '1.0.0',
+                applicationIcon: Image.asset(
+                  constants.APP_ASSET_ICON_PATH,
+                  fit: BoxFit.cover,
+                  width: 50,
+                  height: 50,
+                ),
                 children: [
                   MouseRegion(
                     cursor: SystemMouseCursors.click,
                     child: GestureDetector(
                       onTap: _onTabName,
                       child: RichText(
+                        textAlign: TextAlign.center,
                         text: TextSpan(
                           style: TextStyle(color: Colors.black),
                           children: [
@@ -99,7 +106,7 @@ class AboutPage extends StatelessWidget {
                         text: TextSpan(
                           style: TextStyle(color: Colors.black),
                           children: [
-                            TextSpan(text: 'Source Code is opensourced on '),
+                            TextSpan(text: 'Opensourced on '),
                             TextSpan(
                               text: 'Github',
                               style: TextStyle(
