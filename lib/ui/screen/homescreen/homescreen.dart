@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
+import 'package:tombala/ui/screen/homescreen/components/about_page.dart';
 
-import '../../blocs/generator_bloc/generator_bloc.dart';
-import '../widgets/animated_counter_widget.dart';
+import '../../../blocs/generator_bloc/generator_bloc.dart';
+import '../../widgets/animated_counter_widget.dart';
+import '../../widgets/previous_number_row_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -26,6 +28,15 @@ class HomeScreen extends StatelessWidget {
                 BootstrapCol(
                   sizes: 'col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 ',
                   child: Table(),
+                ),
+              ],
+            ),
+            BootstrapRow(
+              height: 40,
+              children: [
+                BootstrapCol(
+                  sizes: 'col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ',
+                  child: AboutPage(),
                 ),
               ],
             )
@@ -49,7 +60,6 @@ class _HeaderState extends State<Header> {
   AnimationController _ctrl;
   GeneratorBloc _generatorBloc;
   ScrollController _scrollCtrl;
-  final _animatedListKey = GlobalKey<AnimatedListState>();
 
   @override
   void initState() {
@@ -129,7 +139,6 @@ class _HeaderState extends State<Header> {
             child: BlocBuilder<GeneratorBloc, GeneratorState>(
               builder: (context, state) {
                 return PreviousNumbersRow(
-                  animatedListKey: _animatedListKey,
                   generatedValues: _generatorBloc.state.generatedNumbers,
                   controller: _scrollCtrl,
                 );
@@ -205,76 +214,6 @@ class TableTile extends StatelessWidget {
             color: isSelected ? Colors.purple : Colors.black26,
             fontSize: 30,
             fontWeight: FontWeight.w700,
-          ),
-        ),
-      ),
-    );
-  }
-}
-
-class PreviousNumbersRow extends StatelessWidget {
-  final GlobalKey<AnimatedListState> animatedListKey;
-  final Set<int> generatedValues;
-  final ScrollController controller;
-
-  const PreviousNumbersRow({
-    Key key,
-    this.animatedListKey,
-    this.generatedValues,
-    this.controller,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return ListView.builder(
-      itemCount: generatedValues.length,
-      controller: controller,
-      scrollDirection: Axis.horizontal,
-      reverse: false,
-      itemBuilder: (context, index) {
-        return PreviousItem(
-          value: generatedValues.elementAt(index),
-        );
-      },
-    );
-  }
-}
-
-class PreviousItem extends StatelessWidget {
-  final int value;
-
-  const PreviousItem({Key key, this.value}) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    return TweenAnimationBuilder(
-      tween: Tween(begin: 0.0, end: 1.0),
-      duration: Duration(milliseconds: 500),
-      curve: Curves.linear,
-      builder: (context, value, child) {
-        return Opacity(
-          opacity: value,
-          child: child,
-        );
-      },
-      child: Container(
-        width: 60,
-        margin: const EdgeInsets.all(10),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: Colors.blue[50].withOpacity(0.5),
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: Colors.green,
-            width: 1,
-          ),
-        ),
-        padding: const EdgeInsets.all(10),
-        child: Text(
-          '$value',
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w400,
-            color: Colors.green,
           ),
         ),
       ),
