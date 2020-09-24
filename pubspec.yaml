@@ -30,6 +30,8 @@ dependencies:
   google_fonts: ^1.1.0
   # responsive ui
   flutter_bootstrap: ^1.0.1
+  # open's urls
+  url_launcher: ^5.7.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
