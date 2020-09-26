@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
         title: 'Tombola',
         theme: getLightTheme(context),
-        // darkTheme: getDarkTheme(context),
+        darkTheme: getDarkTheme(context),
         home: HomeScreen(),
       ),
     );
