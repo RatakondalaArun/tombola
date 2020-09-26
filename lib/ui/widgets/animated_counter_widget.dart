@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 
 class AnimatedCounterWidget extends StatefulWidget {
@@ -23,7 +21,7 @@ class _AnimatedCounterWidgetState extends State<AnimatedCounterWidget>
     _ctrl = AnimationController(
       vsync: this,
       lowerBound: 0,
-      upperBound: 100,
+      upperBound: 90,
       duration: const Duration(milliseconds: 1000),
     );
     if (widget.init != null) {
@@ -68,6 +66,4 @@ class _AnimatedCounterWidgetState extends State<AnimatedCounterWidget>
       ),
     );
   }
-
-  int generateRandom() => (Random().nextDouble() * 100).floor();
 }

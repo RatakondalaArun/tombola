@@ -150,16 +150,16 @@ class Table extends StatelessWidget {
     return LayoutBuilder(
       builder: (context, constraints) {
         return Container(
-          padding: const EdgeInsets.all(10),
+          padding: const EdgeInsets.all(2),
           height: constraints.maxWidth,
           alignment: Alignment.center,
           child: BlocBuilder<GeneratorBloc, GeneratorState>(
             builder: (context, state) {
               return GridView.builder(
-                itemCount: 100,
+                itemCount: 90,
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 10,
-                  childAspectRatio: 1.3,
+                  childAspectRatio: 1.14,
                 ),
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (context, index) {

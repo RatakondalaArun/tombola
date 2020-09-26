@@ -23,10 +23,10 @@ class GeneratorBloc extends Bloc<GeneratorEvent, GeneratorState> {
 
   Stream<GeneratorState> _mapGenerateEventToState() async* {
     try {
-      if (_generatedNumbers.length >= 100) return;
+      if (_generatedNumbers.length >= 90) return;
       int randomValue = _generateRandom();
       while (_generatedNumbers.contains(randomValue) &&
-          _generatedNumbers.length < 100) {
+          _generatedNumbers.length < 90) {
         randomValue = _generateRandom();
       }
       _generatedNumbers.add(randomValue);
@@ -46,9 +46,9 @@ class GeneratorBloc extends Bloc<GeneratorEvent, GeneratorState> {
   }
 
   int _generateRandom() {
-    // Generatos random value between 1 to 100
+    // Generatos random value between 1 to 90
     // both min and max values are inclusive
     // logic obtained from https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random#Examples
-    return (Random().nextDouble() * (100 - 1 + 1) + 1).floor();
+    return (Random().nextDouble() * (90 - 1 + 1) + 1).floor();
   }
 }
