@@ -42,18 +42,27 @@ class _AnimatedCounterWidgetState extends State<AnimatedCounterWidget>
     return Container(
       height: 100,
       width: 100,
+      decoration: BoxDecoration(
+        color: Colors.blue[50].withOpacity(0.3),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          color: Theme.of(context).accentColor,
+          width: 1,
+        ),
+      ),
+      padding: const EdgeInsets.all(10),
       alignment: Alignment.center,
       child: AnimatedBuilder(
         animation: _ctrl,
         builder: (context, child) {
           return Text(
             _ctrl.value.floor().toString(),
-            style: TextStyle(
-              fontSize: 40,
-              fontWeight: FontWeight.w700,
-              fontStyle: FontStyle.italic,
-              color: Colors.green,
-            ),
+            style: Theme.of(context).primaryTextTheme.headline3.copyWith(
+                  fontSize: 40,
+                  fontWeight: FontWeight.w700,
+                  fontStyle: FontStyle.italic,
+                  color: Theme.of(context).accentColor,
+                ),
           );
         },
       ),

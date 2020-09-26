@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_bootstrap/flutter_bootstrap.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:tombala/ui/screen/homescreen/components/about_page.dart';
 
 import '../../../blocs/generator_bloc/generator_bloc.dart';
 import '../../widgets/animated_counter_widget.dart';
 import '../../widgets/previous_number_row_widget.dart';
+import 'components/about_page.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -45,10 +44,6 @@ class HomeScreen extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  Set<int> getGeneratedNumbers(BuildContext context) {
-    return BlocProvider.of<GeneratorBloc>(context).state.generatedNumbers;
   }
 }
 
@@ -94,24 +89,15 @@ class _HeaderState extends State<Header> {
         children: [
           Text(
             'Tombola',
-            style: GoogleFonts.gochiHand().copyWith(
-              fontSize: 80,
-              color: Colors.black54,
-            ),
+            style: Theme.of(context).primaryTextTheme.headline1,
           ),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.blue[50].withOpacity(0.5),
-              borderRadius: BorderRadius.circular(10),
-              border: Border.all(
-                color: Colors.green,
-                width: 1,
-              ),
-            ),
-            padding: const EdgeInsets.all(10),
-            child: AnimatedCounterWidget(
-              init: (c) => _counterAniContrl = c,
-            ),
+          Text(
+            'Tombola or Housie Generator ',
+            style: Theme.of(context).primaryTextTheme.bodyText2,
+          ),
+          SizedBox(height: 20),
+          AnimatedCounterWidget(
+            init: (c) => _counterAniContrl = c,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -205,7 +191,7 @@ class TableTile extends StatelessWidget {
         color:
             isSelected ? Colors.purple[50] : Colors.purple[50].withOpacity(0.3),
         border: Border.all(
-          color: isSelected ? Colors.purple : Colors.black12,
+          color: isSelected ? Colors.purple : Theme.of(context).primaryColor,
           width: 1,
         ),
       ),
@@ -215,7 +201,9 @@ class TableTile extends StatelessWidget {
         child: Text(
           '$index',
           style: TextStyle(
-            color: isSelected ? Colors.purple : Colors.black26,
+            color: isSelected
+                ? Colors.purple
+                : Theme.of(context).textSelectionColor.withOpacity(0.5),
             fontSize: 30,
             fontWeight: FontWeight.w700,
           ),

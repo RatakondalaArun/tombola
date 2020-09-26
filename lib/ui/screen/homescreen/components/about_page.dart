@@ -19,18 +19,21 @@ class AboutPage extends StatelessWidget {
               onTap: _onTabName,
               child: RichText(
                 text: TextSpan(
-                  style: TextStyle(color: Colors.black),
+                  style: Theme.of(context).primaryTextTheme.bodyText1,
                   children: [
                     TextSpan(text: 'Created by '),
                     TextSpan(
                       text: 'Ratakondala Arun ',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: Colors.blue,
-                        decoration: TextDecoration.underline,
-                      ),
+                      style:
+                          Theme.of(context).primaryTextTheme.bodyText1.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: Colors.blue,
+                                decoration: TextDecoration.underline,
+                              ),
                     ),
-                    TextSpan(text: 'with 🧡 '),
+                    TextSpan(
+                        text: 'with 🧡 ',
+                        style: Theme.of(context).primaryTextTheme.bodyText1),
                   ],
                 ),
               ),
@@ -43,16 +46,17 @@ class AboutPage extends StatelessWidget {
               onTap: _onTabGithub,
               child: RichText(
                 text: TextSpan(
-                  style: TextStyle(color: Colors.black),
+                  style: Theme.of(context).primaryTextTheme.bodyText1,
                   children: [
                     TextSpan(text: 'Source Code is opensourced on '),
                     TextSpan(
                       text: 'Github',
-                      style: TextStyle(
-                        fontWeight: FontWeight.w600,
-                        color: Colors.blue,
-                        decoration: TextDecoration.underline,
-                      ),
+                      style:
+                          Theme.of(context).primaryTextTheme.bodyText1.copyWith(
+                                fontWeight: FontWeight.w600,
+                                color: Colors.blue,
+                                decoration: TextDecoration.underline,
+                              ),
                     ),
                   ],
                 ),
@@ -78,20 +82,26 @@ class AboutPage extends StatelessWidget {
                     child: GestureDetector(
                       onTap: _onTabName,
                       child: RichText(
-                        textAlign: TextAlign.center,
                         text: TextSpan(
-                          style: TextStyle(color: Colors.black),
+                          style: Theme.of(context).primaryTextTheme.bodyText1,
                           children: [
                             TextSpan(text: 'Created by '),
                             TextSpan(
                               text: 'Ratakondala Arun ',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: Colors.blue,
-                                decoration: TextDecoration.underline,
-                              ),
+                              style: Theme.of(context)
+                                  .primaryTextTheme
+                                  .bodyText1
+                                  .copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.blue,
+                                    decoration: TextDecoration.underline,
+                                  ),
                             ),
-                            TextSpan(text: 'with 🧡 '),
+                            TextSpan(
+                                text: 'with 🧡 ',
+                                style: Theme.of(context)
+                                    .primaryTextTheme
+                                    .bodyText1),
                           ],
                         ),
                       ),
@@ -104,16 +114,19 @@ class AboutPage extends StatelessWidget {
                       onTap: _onTabGithub,
                       child: RichText(
                         text: TextSpan(
-                          style: TextStyle(color: Colors.black),
+                          style: Theme.of(context).primaryTextTheme.bodyText1,
                           children: [
-                            TextSpan(text: 'Opensourced on '),
+                            TextSpan(text: 'Source Code is opensourced on '),
                             TextSpan(
                               text: 'Github',
-                              style: TextStyle(
-                                fontWeight: FontWeight.w600,
-                                color: Colors.blue,
-                                decoration: TextDecoration.underline,
-                              ),
+                              style: Theme.of(context)
+                                  .primaryTextTheme
+                                  .bodyText1
+                                  .copyWith(
+                                    fontWeight: FontWeight.w600,
+                                    color: Colors.blue,
+                                    decoration: TextDecoration.underline,
+                                  ),
                             ),
                           ],
                         ),

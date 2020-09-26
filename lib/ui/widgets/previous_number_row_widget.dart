@@ -32,36 +32,25 @@ class PreviousItem extends StatelessWidget {
   const PreviousItem({Key key, this.value}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return TweenAnimationBuilder(
-      tween: Tween(begin: 0.0, end: 1.0),
-      duration: Duration(milliseconds: 500),
-      curve: Curves.linear,
-      builder: (context, value, child) {
-        return Opacity(
-          opacity: value,
-          child: child,
-        );
-      },
-      child: Container(
-        width: 60,
-        margin: const EdgeInsets.all(10),
-        alignment: Alignment.center,
-        decoration: BoxDecoration(
-          color: Colors.blue[50].withOpacity(0.5),
-          borderRadius: BorderRadius.circular(10),
-          border: Border.all(
-            color: Colors.green,
-            width: 1,
-          ),
+    return Container(
+      width: 60,
+      margin: const EdgeInsets.all(10),
+      alignment: Alignment.center,
+      decoration: BoxDecoration(
+        color: Colors.blue[50].withOpacity(0.5),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(
+          color: Colors.green,
+          width: 1,
         ),
-        padding: const EdgeInsets.all(10),
-        child: Text(
-          '$value',
-          style: TextStyle(
-            fontSize: 18,
-            fontWeight: FontWeight.w400,
-            color: Colors.green,
-          ),
+      ),
+      padding: const EdgeInsets.all(10),
+      child: Text(
+        '$value',
+        style: TextStyle(
+          fontSize: 18,
+          fontWeight: FontWeight.w400,
+          color: Theme.of(context).accentColor,
         ),
       ),
     );
