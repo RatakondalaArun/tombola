@@ -89,7 +89,10 @@ class _HeaderState extends State<Header> {
         children: [
           Text(
             'Tombola',
-            style: Theme.of(context).primaryTextTheme.headline1,
+            style: Theme.of(context)
+                .primaryTextTheme
+                .headline1
+                .copyWith(fontSize: 50),
           ),
           Text(
             'Tombola or Housie Generator ',
