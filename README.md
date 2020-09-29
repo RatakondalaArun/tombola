@@ -5,7 +5,14 @@ A *tombola* or *housie* number generator developed with Flutter and dart. Suppor
 
 This app shows a board and generate random numbers from 1 to 90.
 
+### Screenshots
+**Mobile**
 
+<img src="screenshots/tombola_mobile.jpeg" height="500px" >
+
+**Web**
+
+<img src="screenshots/tombola_web.png" width="700px"  >
 
 ## Technologies
 - [Flutter](https://flutter.dev)
