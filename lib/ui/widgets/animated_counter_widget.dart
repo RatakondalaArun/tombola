@@ -31,7 +31,6 @@ class _AnimatedCounterWidgetState extends State<AnimatedCounterWidget>
 
   @override
   void dispose() {
-    _ctrl.dispose();
     super.dispose();
   }
 

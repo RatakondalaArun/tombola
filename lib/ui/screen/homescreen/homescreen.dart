@@ -13,34 +13,27 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: BootstrapContainer(
-          fluid: true,
-          padding: const EdgeInsets.all(0),
-          children: [
-            BootstrapRow(
-              height: MediaQuery.of(context).size.height,
-              children: [
-                BootstrapCol(
-                  sizes: 'col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4',
-                  child: Header(),
-                ),
-                BootstrapCol(
-                  sizes: 'col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 ',
-                  child: Table(),
-                ),
-              ],
-            ),
-            BootstrapRow(
-              height: 40,
-              children: [
-                BootstrapCol(
-                  sizes: 'col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 ',
-                  child: AboutPage(),
-                ),
-              ],
-            )
-          ],
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: BootstrapContainer(
+            fluid: true,
+            padding: const EdgeInsets.all(0),
+            children: [
+              BootstrapRow(
+                height: MediaQuery.of(context).size.height,
+                children: [
+                  BootstrapCol(
+                    sizes: 'col-12 col-sm-12 col-md-12 col-lg-4 col-xl-4',
+                    child: Header(),
+                  ),
+                  BootstrapCol(
+                    sizes: 'col-12 col-sm-12 col-md-12 col-lg-8 col-xl-8 ',
+                    child: Table(),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );
@@ -95,7 +88,7 @@ class _HeaderState extends State<Header> {
                 .copyWith(fontSize: 50),
           ),
           Text(
-            'Tombola or Housie Generator ',
+            'Tombola or Housie number Generator ',
             style: Theme.of(context).primaryTextTheme.bodyText2,
           ),
           SizedBox(height: 20),
@@ -136,7 +129,8 @@ class _HeaderState extends State<Header> {
                 );
               },
             ),
-          )
+          ),
+          AboutPage()
         ],
       ),
     );

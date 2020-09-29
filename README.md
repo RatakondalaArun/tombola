@@ -1,16 +1,18 @@
-# tombala
+**All Contributions are Welcomed**
 
-Tombala
+# Tambola
 
-## Getting Started
+Tambola or Housie number Generator 
+This is a simple crossplatform app, it can be used as random number generator board for *housie* or *Tambola* game.
 
-This project is a starting point for a Flutter application.
+This app can show previously generated numbers as well as a number table(1 - 90) containing highlighted generated number.
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+## Technologies
+- [Flutter](https://flutter.dev)
+- [Dart](https://dart.dev)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+You can checkout 
+
+**Note**:
+*Flutter web is still in [development stage](https://flutter.dev/web) so web app may be unstable.*
