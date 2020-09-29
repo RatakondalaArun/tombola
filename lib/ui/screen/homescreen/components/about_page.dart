@@ -69,7 +69,7 @@ class AboutPage extends StatelessWidget {
               showAboutDialog(
                 context: context,
                 applicationName: 'Tombola',
-                applicationVersion: '1.0.0',
+                applicationVersion: '1.0.1',
                 applicationIcon: Image.asset(
                   constants.APP_ASSET_ICON_PATH,
                   fit: BoxFit.cover,
