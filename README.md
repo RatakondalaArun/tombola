@@ -1,18 +1,17 @@
 **All Contributions are Welcomed**
 
-# Tambola
+# Tombola
+A *tombola* or *housie* number generator developed with Flutter and dart. Supports web, android, ios.
 
-Tambola or Housie number Generator 
-This is a simple crossplatform app, it can be used as random number generator board for *housie* or *Tambola* game.
+This app shows a board and generate random numbers from 1 to 90.
 
-This app can show previously generated numbers as well as a number table(1 - 90) containing highlighted generated number.
 
 
 ## Technologies
 - [Flutter](https://flutter.dev)
 - [Dart](https://dart.dev)
 
-You can checkout 
+You can checkout Web version of this app [here](https://ratakondalaarun.github.io/tombola).
 
 **Note**:
 *Flutter web is still in [development stage](https://flutter.dev/web) so web app may be unstable.*
