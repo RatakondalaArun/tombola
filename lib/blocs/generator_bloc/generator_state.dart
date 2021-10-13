@@ -4,8 +4,8 @@ enum GeneratorStates { initial, generating, generated, reseted }
 
 class GeneratorState {
   final GeneratorStates state;
-  final int value;
-  final Set<int> generatedNumbers;
+  final int? value;
+  final Set<int>? generatedNumbers;
 
   const GeneratorState(
     this.state, {
