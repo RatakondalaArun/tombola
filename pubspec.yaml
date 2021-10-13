@@ -29,7 +29,7 @@ dependencies:
   # ui
   google_fonts: ^2.1.0
   # responsive ui
-  flutter_bootstrap: ^1.0.1
+  flutter_bootstrap: ^2.0.0
   # open's urls
   url_launcher: ^6.0.12
 
