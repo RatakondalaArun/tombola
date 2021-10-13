@@ -46,9 +46,9 @@ class Header extends StatefulWidget {
 }
 
 class _HeaderState extends State<Header> {
-  AnimationController _counterAniContrl;
-  GeneratorBloc _generatorBloc;
-  ScrollController _scrollCtrl;
+  AnimationController? _counterAniContrl;
+  late GeneratorBloc _generatorBloc;
+  ScrollController? _scrollCtrl;
 
   @override
   void initState() {
@@ -56,9 +56,9 @@ class _HeaderState extends State<Header> {
     _scrollCtrl = ScrollController();
     _generatorBloc = BlocProvider.of<GeneratorBloc>(context);
     _generatorBloc.listen((state) {
-      _counterAniContrl?.animateTo(state.value.toDouble());
+      _counterAniContrl?.animateTo(state.value!.toDouble());
       _scrollCtrl?.animateTo(
-        (70 + _scrollCtrl.position.maxScrollExtent).toDouble(),
+        (70 + _scrollCtrl!.position.maxScrollExtent).toDouble(),
         duration: Duration(milliseconds: 1000),
         curve: Curves.decelerate,
       );
@@ -67,9 +67,9 @@ class _HeaderState extends State<Header> {
 
   @override
   void dispose() {
-    _counterAniContrl.dispose();
+    _counterAniContrl!.dispose();
     _generatorBloc.close();
-    _scrollCtrl.dispose();
+    _scrollCtrl!.dispose();
     super.dispose();
   }
 
@@ -84,7 +84,7 @@ class _HeaderState extends State<Header> {
             'Tombola',
             style: Theme.of(context)
                 .primaryTextTheme
-                .headline1
+                .headline1!
                 .copyWith(fontSize: 50),
           ),
           Text(
@@ -138,7 +138,7 @@ class _HeaderState extends State<Header> {
 }
 
 class Table extends StatelessWidget {
-  const Table({Key key}) : super(key: key);
+  const Table({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
@@ -159,7 +159,7 @@ class Table extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return TableTile(
                     index: index + 1,
-                    isSelected: state.generatedNumbers.contains(index + 1),
+                    isSelected: state.generatedNumbers!.contains(index + 1),
                   );
                 },
               );
@@ -176,8 +176,8 @@ class TableTile extends StatelessWidget {
   final bool isSelected;
 
   const TableTile({
-    Key key,
-    @required this.index,
+    Key? key,
+    required this.index,
     this.isSelected = false,
   }) : super(key: key);
   @override
@@ -186,7 +186,7 @@ class TableTile extends StatelessWidget {
       duration: Duration(milliseconds: 1000),
       decoration: BoxDecoration(
         color:
-            isSelected ? Colors.purple[50] : Colors.purple[50].withOpacity(0.3),
+            isSelected ? Colors.purple[50] : Colors.purple[50]!.withOpacity(0.3),
         border: Border.all(
           color: isSelected ? Colors.purple : Theme.of(context).primaryColor,
           width: 1,

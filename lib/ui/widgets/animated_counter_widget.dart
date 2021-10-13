@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class AnimatedCounterWidget extends StatefulWidget {
-  final void Function(AnimationController controller) init;
+  final void Function(AnimationController? controller)? init;
   const AnimatedCounterWidget({
     this.init,
-    Key key,
+    Key? key,
   }) : super(key: key);
 
   @override
@@ -13,7 +13,7 @@ class AnimatedCounterWidget extends StatefulWidget {
 
 class _AnimatedCounterWidgetState extends State<AnimatedCounterWidget>
     with SingleTickerProviderStateMixin {
-  AnimationController _ctrl;
+  AnimationController? _ctrl;
 
   @override
   void initState() {
@@ -25,7 +25,7 @@ class _AnimatedCounterWidgetState extends State<AnimatedCounterWidget>
       duration: const Duration(milliseconds: 1000),
     );
     if (widget.init != null) {
-      widget.init(_ctrl);
+      widget.init!(_ctrl);
     }
   }
 
@@ -40,7 +40,7 @@ class _AnimatedCounterWidgetState extends State<AnimatedCounterWidget>
       height: 100,
       width: 100,
       decoration: BoxDecoration(
-        color: Colors.blue[50].withOpacity(0.3),
+        color: Colors.blue[50]!.withOpacity(0.3),
         borderRadius: BorderRadius.circular(10),
         border: Border.all(
           color: Theme.of(context).accentColor,
@@ -50,11 +50,11 @@ class _AnimatedCounterWidgetState extends State<AnimatedCounterWidget>
       padding: const EdgeInsets.all(10),
       alignment: Alignment.center,
       child: AnimatedBuilder(
-        animation: _ctrl,
+        animation: _ctrl!,
         builder: (context, child) {
           return Text(
-            _ctrl.value.floor().toString(),
-            style: Theme.of(context).primaryTextTheme.headline3.copyWith(
+            _ctrl!.value.floor().toString(),
+            style: Theme.of(context).primaryTextTheme.headline3!.copyWith(
                   fontSize: 40,
                   fontWeight: FontWeight.w700,
                   fontStyle: FontStyle.italic,

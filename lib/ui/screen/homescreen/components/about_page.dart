@@ -27,7 +27,7 @@ class AboutPage extends StatelessWidget {
                     TextSpan(
                       text: 'Ratakondala Arun ',
                       style:
-                          Theme.of(context).primaryTextTheme.bodyText1.copyWith(
+                          Theme.of(context).primaryTextTheme.bodyText1!.copyWith(
                                 fontWeight: FontWeight.w600,
                                 color: Colors.blue,
                                 decoration: TextDecoration.underline,
@@ -52,7 +52,7 @@ class AboutPage extends StatelessWidget {
                     TextSpan(
                       text: 'Github',
                       style:
-                          Theme.of(context).primaryTextTheme.bodyText1.copyWith(
+                          Theme.of(context).primaryTextTheme.bodyText1!.copyWith(
                                 fontWeight: FontWeight.w600,
                                 color: Colors.blue,
                                 decoration: TextDecoration.underline,
@@ -91,7 +91,7 @@ class AboutPage extends StatelessWidget {
                               text: 'Ratakondala Arun ',
                               style: Theme.of(context)
                                   .primaryTextTheme
-                                  .bodyText1
+                                  .bodyText1!
                                   .copyWith(
                                     fontWeight: FontWeight.w600,
                                     color: Colors.blue,
@@ -123,7 +123,7 @@ class AboutPage extends StatelessWidget {
                               text: 'Github',
                               style: Theme.of(context)
                                   .primaryTextTheme
-                                  .bodyText1
+                                  .bodyText1!
                                   .copyWith(
                                     fontWeight: FontWeight.w600,
                                     color: Colors.blue,
@@ -153,7 +153,7 @@ class AboutPage extends StatelessWidget {
                               text: 'here',
                               style: Theme.of(context)
                                   .primaryTextTheme
-                                  .bodyText1
+                                  .bodyText1!
                                   .copyWith(
                                     fontWeight: FontWeight.w600,
                                     color: Colors.blue,
